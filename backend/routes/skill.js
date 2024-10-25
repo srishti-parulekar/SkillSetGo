@@ -3,7 +3,7 @@ const router = express.Router();
 const passport = require("passport")
 const Skill = require("../models/Skill")
 router.post("/create", 
-    passport.authenticate(), 
+    passport.authenticate("jwt", { session: false }), 
     async (req,res) => {
         const user = req.user;
         

@@ -13,6 +13,7 @@ const experienceRoutes = require("./routes/experience");
 const skillRoutes = require("./routes/skill");
 const projectRoutes = require("./routes/project");
 
+const User = require("./models/User");
 const app = express();
 
 //to tell express that the request body is going to be in JSON format. 

@@ -4,7 +4,7 @@ const passport = require("passport")
 const Project = require("../models/Project")
 
 router.post("/create", 
-    passport.authenticate(), 
+    passport.authenticate("jwt", { session: false }), 
     async (req,res) => {
         const user = req.user;
         

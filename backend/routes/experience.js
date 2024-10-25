@@ -12,7 +12,7 @@ router.post("/create", passport.authenticate("jwt", { session: false }), async (
     const user = req.user;
     //create the exp object 
     const { companyName, position, startDate, endDate, description } = req.body;
-    if (!companyName, !position, !startDate, !endDate) {
+    if (!companyName, !position) {
         return res.status(402).json({ err: "Please fill all the details!" });
     }
 
