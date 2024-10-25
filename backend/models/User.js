@@ -22,25 +22,32 @@ const UserSchema = new mongoose.Schema({
     },
     experience: [
         {
-            type: String,
+            //more relevant than storing id as string
+            //since this populates the experience object inside
+            //the user object itself
+            type: mongoose.Schema.Types.ObjectId,
+            //ref tells which model or schema the id belongs to
+            ref: "Experience",
         },
     ],
     projects: [
         {
-            type: String,
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Project",
         },
     ],
     skills: [
         {
-            type: String,
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Skill",
         },
     ],
 
-})
+});
 
 //to convert the schema into a model:
 
 const User = mongoose.model("User",UserSchema);
 //users
 
-modules.exports = User;
+module.exports = User;

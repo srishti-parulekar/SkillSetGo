@@ -1,6 +1,9 @@
 const express = require("express");
 const User = require("../models/User");
-const bcript = require("bcrypt");
+const bcrypt = require("bcrypt");
+
+const { getToken } = require("../utils/helpers");
+
 // in server.js we are calling express as a whole 
 //we dont need all those features
 //here we only need its routing
@@ -36,7 +39,7 @@ router.post("/register", async (req,res) =>{
 
     //we want to return the following to the user: the actual user created, the token
 
-    const userToReturn = {...newUser.toJson(), token};
+    const userToReturn = {...newUser.toJSON(), token};
     delete userToReturn.password;
     return res.status(200).json(userToReturn);
 
@@ -59,8 +62,10 @@ router.post("/login", async (req,res) =>{
         return res.status(401).json({err: "Invalid email or password!"});
     }
     //authenticated: generate a token for user and return.
-    const token = await getToken(email, newUser);
-    const userToReturn = {...newUser.toJson(), token};
+    const token = await getToken(email, user);
+    const userToReturn = {...user.toJSON(), token};
     delete userToReturn.password;
     return res.status(200).json(userToReturn);
 });
+
+module.exports = router;
