@@ -1,13 +1,37 @@
 const express = require("express");
-const passport = require("passport")
-const { ExtractJwt, JwtStrategy } = require("passport-jwt");
+const passport = require("passport");
+
+const ExtractJwt = require("passport-jwt").ExtractJwt;
+const JwtStrategy = require("passport-jwt").Strategy;
+const mongoose = require("mongoose");
+
+require("dotenv").config(); //will require and then config the package
+//the variables that we want to define will get defined. 
+
 
 const app = express();
+
+
+
+//to connect to mongodb from node we need to use mongoose
+//it will take 2 arguments: connection string, connection options
+
+mongoose.connect(
+    "mongodb+srv://srishtiparulekar430:" +
+    process.env.MONGO_PASSWORD + 
+    "@skillsetgocluster.tttbg.mongodb.net/?retryWrites=true&w=majority&appName=SkillSetGoCluster"
+).then(() => {
+    console.log("Connected to mongo!");
+}).catch((err) => {
+    console.log("Error occurred while connecting to mongo!");
+    console.log(err);
+});
+
 
 //passport-jwt setup:
 
 //jwt_payload : {identifier: userId}
-let opts = {}
+let opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 opts.secretOrKey = "qwertyuiop";
 passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
