@@ -1,0 +1,284 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+button {
+    cursor: pointer;
+}
+
+.fun-background {
+    background: linear-gradient(45deg, #FF79B0 0%, #4DD0E1 100%);
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.app-bar {
+    background-color: #FF4081;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.app-title {
+    flex-grow: 1;
+}
+
+.drawer {
+    width: 250px;
+}
+
+.drawer-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #FF4081 0%, #00BCD4 100%);
+    color: #FFFFFF;
+    padding: 120px 0 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.cta-button {
+    margin-top: 32px;
+}
+
+.features-section,
+.roles-section,
+.ai-section {
+    padding: 64px 0;
+    width: 100%;
+}
+
+.section-title {
+    margin-bottom: 40px;
+    font-weight: bold;
+    position: relative;
+    color: #333;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: #00BCD4;
+}
+
+.feature-card {
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    background-color: #FFFFFF;
+    margin-top: 30px;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon,
+.ai-feature-icon {
+    background-color: #FF4081;
+    color: #FFFFFF;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 16px;
+}
+
+.ai-feature-icon {
+    background-color: #00BCD4;
+}
+
+.role-tabs {
+    margin-bottom: 32px;
+}
+
+.role-content {
+    padding: 24px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    color: #333;
+}
+
+.footer {
+    background-color: #333;
+    color: #FFFFFF;
+    padding: 48px 0;
+}
+
+.subscribe-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.subscribe-input {
+    margin-right: 8px;
+    flex-grow: 1;
+    max-width: 300px;
+}
+
+.copyright {
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid #555;
+    color: #CCCCCC;
+}
+
+.MuiContainer-root {
+    max-width: 100% !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+}
+
+.MuiGrid-container {
+    justify-content: center;
+}
+
+.MuiGrid-item {
+    display: flex;
+}
+
+.roles-section .MuiGrid-container {
+    justify-content: center;
+}
+
+@media (max-width: 960px) {
+    .hero-section {
+        padding: 100px 0 60px;
+    }
+
+    .features-section,
+    .roles-section,
+    .ai-section {
+        padding: 40px 0;
+    }
+
+    .section-title {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .subscribe-form {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .subscribe-input {
+        margin-right: 0;
+        margin-bottom: 16px;
+        width: 100%;
+    }
+}
+
+.subscribe-input .MuiOutlinedInput-root {
+    background-color: white; 
+    color: black; 
+}
+
+.subscribe-input .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+    border-color: black; 
+}
+
+.subscribe-input .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #00BCD4; 
+}
+
+.subscribe-input .MuiInputBase-input::placeholder {
+    color: black; 
+    opacity: 1; 
+}
+
+.roles-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.section-title {
+    margin-bottom: 32px;
+    font-weight: bold;
+    position: relative;
+}
+
+.role-tabs {
+    display: flex;
+    justify-content: center;
+    width: 100%; 
+    max-width: 600px; 
+}
+
+.features-section,
+.ai-section {
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.feature-card {
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon,
+.ai-feature-icon {
+    font-size: 2.5rem;
+    color: #1976d2;
+}
+
+.features-section .MuiGrid2-container,
+.ai-section .MuiGrid2-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: repeat(2, 1fr); 
+    gap: 3rem;
+    width: 100%;
+}
