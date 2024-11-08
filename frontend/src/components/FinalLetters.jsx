@@ -13,8 +13,8 @@ import {
   Snackbar,
   Alert
 } from '@mui/material';
-import { interviewerApi } from '../../services/api';
 
+import { interviewerApi } from '../services/api';
 export default function FinalLetters() {
   const [applications, setApplications] = useState([]);
   const [selectedApplication, setSelectedApplication] = useState(null);

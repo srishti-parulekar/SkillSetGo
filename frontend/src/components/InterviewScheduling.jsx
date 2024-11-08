@@ -10,7 +10,7 @@ import {
   Alert,
   Snackbar
 } from '@mui/material';
-import { interviewerApi } from '../../services/api';
+import { interviewerApi } from '../services/api';
 
 export default function InterviewScheduling() {
   const [availability, setAvailability] = useState([]);

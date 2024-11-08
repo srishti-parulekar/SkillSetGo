@@ -10,7 +10,7 @@ import {
   Typography,
   CircularProgress
 } from '@mui/material';
-import { interviewerApi } from '../../services/api';
+import { interviewerApi } from '../services/api';
 
 export default function ATSScores() {
   const [scores, setScores] = useState([]);

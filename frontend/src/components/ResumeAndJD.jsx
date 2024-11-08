@@ -11,7 +11,7 @@ import {
   Button,
   CircularProgress
 } from '@mui/material';
-import { interviewerApi } from '../../services/api';
+import { interviewerApi } from '../services/api';
 
 export default function ResumeAndJD() {
   const [applications, setApplications] = useState([]);

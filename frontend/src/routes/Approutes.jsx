@@ -1,21 +1,23 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "../pages/Home"; 
 import Login from "../pages/Login";
-import InterviewerDashboard from "../pages/InterviewerDashboard/InterviewerDashboard";
-
-//import About from "../pages/pagename"; 
+import InterviewerDashboard from "../pages/RoleDashboards/InterviewerDashboard";
+import ApplicantDashboard from "../pages/RoleDashboards/ApplicantDashboard";
+import HiringManagerDashboard from "../pages/RoleDashboards/HiringManagerDashboard";
+import AdminDashboard from "../pages/RoleDashboards/AdminDashboard";
 
 const AppRoutes = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} /> 
-        <Route path="/login" element={<Login />} /> 
-        <Route path="/interviewerdashboard" element={<InterviewerDashboard />} /> 
-        {/* <Route path="/about" element={<About />} /> */}
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<Home />} /> 
+      <Route path="/login" element={<Login />} /> 
+      <Route path="/interviewerdashboard" element={<InterviewerDashboard />} /> 
+      <Route path="/applicantdashboard" element={<ApplicantDashboard />} /> 
+      <Route path="/hiringmanagerdashboard" element={<HiringManagerDashboard />} /> 
+      <Route path="/admindashboard" element={<AdminDashboard />} /> 
+      {/* <Route path="/about" element={<About />} /> */}
+    </Routes>
   );
 };
 

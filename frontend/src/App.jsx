@@ -1,7 +1,9 @@
 import { useContext } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext"; 
-import AppRoutes from "./routes/AppRoutes"; 
+import AppRoutes from "./routes/Approutes";
 import Preloader from "./pages/Preloader";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   const { loading } = useContext(AuthContext); 
@@ -12,9 +14,17 @@ function App() {
   
   return (
     <div className="App">
-      <AppRoutes /> 
+      <Router>
+        <AppRoutes /> 
+      </Router>
     </div>
   );
 }
 
-export default App;
+export default function RootApp() {
+  return (
+    <AuthProvider>
+      <App />
+    </AuthProvider>
+  );
+}
