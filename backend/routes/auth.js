@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require("../models/User");
 const bcrypt = require("bcrypt");
+const Interviewer = require("../models/Interviewer"); //added
 
 const { getToken } = require("../utils/helpers");
 
@@ -66,6 +67,27 @@ router.post("/login", async (req,res) =>{
     const userToReturn = {...user.toJSON(), token};
     delete userToReturn.password;
     return res.status(200).json(userToReturn);
+});
+
+//added
+// New interviewer login route
+router.post("/interviewer/login", async (req, res) => {
+    const { email, password } = req.body;
+    if (!email || !password) {
+        return res.status(401).json({ err: "Invalid email or password!" });
+    }
+    const interviewer = await Interviewer.findOne({ email: email });
+    if (!interviewer) {
+        return res.status(401).json({ err: "Invalid email or password!" });
+    }
+    const isPasswordValid = await bcrypt.compare(password, interviewer.password);
+    if (!isPasswordValid) {
+        return res.status(401).json({ err: "Invalid email or password!" });
+    }
+    const token = await getToken(email, interviewer);
+    const interviewerToReturn = { ...interviewer.toJSON(), token };
+    delete interviewerToReturn.password;
+    return res.status(200).json(interviewerToReturn);
 });
 
 module.exports = router;
